@@ -1,5 +1,7 @@
 package com.example.application.views.list;
 
+import com.example.application.data.entity.Country;
+import com.example.application.data.entity.Status;
 import com.example.application.data.entity.Survey;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEvent;
@@ -7,6 +9,7 @@ import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -16,6 +19,8 @@ import com.vaadin.flow.shared.Registration;
 
 public class FirstSurveyForm extends FormLayout {
     TextField age = new TextField("When were you born?");
+
+    ComboBox<Country> country = new ComboBox<>("What is your nationality?");
 
     TextField countryName = new TextField("What is your nationality?");
 
@@ -46,6 +51,7 @@ public class FirstSurveyForm extends FormLayout {
         binder.bindInstanceFields(this);
 
         add(age,
+                country,
                 countryName,
                 genre,
                 gender,

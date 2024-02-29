@@ -30,6 +30,7 @@ public class SurveyView extends VerticalLayout {
     private void configureForm() {
         form = new FirstSurveyForm();
         form.setSurvey(new Survey());
+        form.setWidth("500em");
         form.addSaveListener(this::saveSurvey); // <1>
 
     }

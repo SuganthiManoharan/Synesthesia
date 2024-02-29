@@ -1,6 +1,8 @@
 package com.example.application.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Survey")
@@ -8,7 +10,17 @@ public class Survey extends AbstractEntity{
 
     private static final long serialVersionUID = 1L;
 
+    public Country getCountry() {
+        return country;
+    }
 
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
     private String countryName;
 
     private String yearOfBirth;
